@@ -10,7 +10,7 @@ db = firebase.database()
 
 
 df = pd.read_csv('./CAPA.csv')
-#presentes = []
+presentes = []
 
 gb = GridOptionsBuilder.from_dataframe(df)
 
