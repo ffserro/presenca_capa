@@ -12,22 +12,14 @@ df = pd.read_csv('./CAPA.csv')
 st.dataframe(df)
 
 #Infer basic colDefs from dataframe types
-gb = GridOptionsBuilder.from_dataframe(df[['data_cadastro', 'pi', 'nome', 'descricao', 'preco_unitario', 'quantidade', 'uf', 'lvad', 'situacao', 'origem']])
+gb = GridOptionsBuilder.from_dataframe(df)
 
 #customize gridOptions
 gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
 gb.configure_auto_height(True)
 gb.configure_pagination()
-gb.configure_column("data_cadastro", 'Data', type=["dateColumnFilter","customDateTimeFormat"], custom_format_string='dd-MM-yyyy', pivot=True)
-gb.configure_column("pi", 'PI')
-gb.configure_column("nome", 'Nome do item')
-gb.configure_column("descricao",'Descrição')
-gb.configure_column("lvad", 'LVAD')
-gb.configure_column("preco_unitario", 'Preço Unitário', type=["customCurrencyFormat"], custom_currency_symbol="R$", aggFunc='sum')
-gb.configure_column("quantidade", 'Quantidade', type=["numericColumn"], aggFunc='max')
-gb.configure_column("situacao", 'Situação')
-gb.configure_column("uf", 'UF')
-gb.configure_column("origem",'Origem')
+gb.configure_column("NOME", 'Oficial Aluno')
+
 
 
 gb.configure_side_bar()
