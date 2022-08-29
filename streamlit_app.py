@@ -7,7 +7,7 @@ st.set_page_config(page_title='Presença', page_icon='https://www.marinha.mil.br
 
 #query = db.child('itens').get().val().values()
 
-df = pd.read_csv('ffserro/presenca_capa/CAPA.csv')
+df = pd.read_csv('./CAPA.csv')
 
 st.dataframe(df)
 
