@@ -10,7 +10,7 @@ db = firebase.database()
 
 
 df = pd.read_csv('./CAPA.csv')
-presentes = []
+#presentes = []
 
 #Infer basic colDefs from dataframe types
 gb = GridOptionsBuilder.from_dataframe(df)
@@ -49,7 +49,8 @@ st.write(grid_response['selected_rows'])
 enviar = st.button('Presente!')
 if enviar:
     for nome in grid_response['selected_rows']:
-        presentes.append(nome['NOME'])
+        #presentes.append(nome['NOME'])
+        pass
 
 st.write(presentes)
 
