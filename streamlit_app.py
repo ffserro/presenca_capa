@@ -1,3 +1,4 @@
+from typing import ParamSpecArgs
 import streamlit as st
 import pandas as pd 
 import pyrebase
@@ -51,9 +52,9 @@ st.write(grid_response['selected_rows'])
 enviar = st.button('Presente!')
 if enviar:
     for nome in grid_response['selected_rows']:
-        presentes.append(nome['NOME'])
+        pass
 
-st.write(presentes)
+
 
 
 
