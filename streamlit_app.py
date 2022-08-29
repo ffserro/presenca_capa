@@ -5,7 +5,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 from datetime import datetime
 st.set_page_config(page_title='Presença', page_icon='https://www.marinha.mil.br/sites/default/files/favicon-logomarca-mb.ico', layout="centered", menu_items=None)
 
-firebase = pyrebase.initialize_app(firebaseConfig)
+firebase = pyrebase.initialize_app(st.secrets.CONFIG_KEY)
 db = firebase.database()
 
 
