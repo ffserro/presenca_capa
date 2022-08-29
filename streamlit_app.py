@@ -12,10 +12,8 @@ db = firebase.database()
 df = pd.read_csv('./CAPA.csv')
 #presentes = []
 
-#Infer basic colDefs from dataframe types
 gb = GridOptionsBuilder.from_dataframe(df)
 
-#customize gridOptions
 gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, aggFunc='sum', editable=False)
 gb.configure_auto_height(True)
 gb.configure_column("NOME", 'Oficial Aluno')
