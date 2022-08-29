@@ -42,7 +42,7 @@ grid_response = AgGrid(
     theme='streamlit'    
     )
 
-enviar = st.button('Enviar itens selecionados para o DepSMRJ')
+enviar = st.button('Presente!')
 if enviar:
     ids = [i['id'] for i in grid_response['selected_rows']]
     for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
