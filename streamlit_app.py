@@ -32,7 +32,7 @@ gridOptions = gb.build()
 
 
 
-st.write('# Oficiais alunos que ainda não se encontram à bordo.')
+st.write('# Oficiais alunos que ainda não se encontram a bordo.')
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
