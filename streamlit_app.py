@@ -8,9 +8,13 @@ st.set_page_config(page_title='Presença', page_icon='https://www.marinha.mil.br
 firebase = pyrebase.initialize_app(st.secrets.CONFIG_KEY)
 db = firebase.database()
 
+query = db.child('presenca').child(datetime.now().strftime('%y-%m-%d')).get().val().values()
 
-df = pd.read_csv('./CAPA.csv')
-presentes = []
+
+df = pd.DataFrame()
+for i in query:
+	df = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
+
 
 gb = GridOptionsBuilder.from_dataframe(df)
 
@@ -34,7 +38,7 @@ gridOptions = gb.build()
 st.write('# Presença CApA')
 st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
 grid_response = AgGrid(
-    df, 
+    df[~df.presente], 
     gridOptions=gridOptions,
     fit_columns_on_grid_load = True,
     data_return_mode='FILTERED', 
