@@ -42,6 +42,8 @@ grid_response = AgGrid(
     theme='streamlit'    
     )
 
+st.write(grid_response['selected_rows'])
+
 enviar = st.button('Presente!')
 if enviar:
     ids = [i['id'] for i in grid_response['selected_rows']]
