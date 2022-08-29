@@ -34,7 +34,7 @@ gridOptions = gb.build()
 
 
 
-st.write('# Envio dos itens cadastrados')
+st.write('# Oficiais alunos que ainda não se encontram à bordo.')
 grid_response = AgGrid(
     df, 
     gridOptions=gridOptions,
