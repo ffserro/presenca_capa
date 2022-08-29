@@ -13,7 +13,7 @@ query = db.child('presenca').child(datetime.now().strftime('%y-%m-%d')).get().va
 
 df = pd.DataFrame()
 for i in query:
-	df = pd.concat([df_itens, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
+	df = pd.concat([df, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
 
 
 gb = GridOptionsBuilder.from_dataframe(df)
