@@ -1,6 +1,7 @@
 streamlit
 streamlit-aggrid
-pyrebase
 firebase
+pyrebase
+pyrebase4
 pandas
 numpy
