@@ -48,7 +48,6 @@ enviar = st.button('Presente!')
 if enviar:
     for nome in grid_response['selected_rows']:
         presentes.append(nome['NOME'])
-        pass
 
 st.write(presentes)
 
