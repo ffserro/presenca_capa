@@ -15,7 +15,7 @@ nomes = pd.read_csv('./CAPA.csv')
 df = pd.DataFrame()
 for i in nomes.NOME:
     if agora.strftime('%Y-%m-%d') not in db.child('presenca').child(i).get().val().keys():
-	    df = pd.concat([df, pd.DataFrame({'Oficial Aluno':[i]})],ignore_index=True)
+	    df = pd.concat([df, pd.DataFrame({'NOME':[i]})],ignore_index=True)
 
 
 gb = GridOptionsBuilder.from_dataframe(df)
