@@ -72,6 +72,8 @@ else:
     final = pd.DataFrame()
     for i in nomes.NOME:
         st.write(db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d')).get().val())
+        final = pd.concat([final, pd.DataFrame(i:[db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d')).get().val()])], ignore_index=True)
+    st.dataframe(final)
 
 
 
