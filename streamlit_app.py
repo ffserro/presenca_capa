@@ -71,7 +71,7 @@ else:
     st.title('Todos a bordo!')
     final = pd.DataFrame()
     for i in nomes.NOME:
-        final = pd.concat([final, pd.DataFrame({ i : db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d')).get().val() } ))], ignore_index=True)
+        final = pd.concat([final, pd.DataFrame({ i : db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d')).get().val() } )]), ignore_index=True)
         st.dataframe(final)
 
 
