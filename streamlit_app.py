@@ -74,4 +74,4 @@ else:
         hora = db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d')).get().val()
         final = pd.concat([final, pd.DataFrame({'Oficial Aluno':[i], 'Chegada':[hora]})], ignore_index=True)
     final = final.style.hide_index()
-    st.write(final.to_html(), unsafe_allow_html=True)
+    st.table(final.to_html(), unsafe_allow_html=True)
