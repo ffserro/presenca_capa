@@ -69,7 +69,7 @@ if len(df) != 0:
         st.experimental_rerun()
 else:
     st.title('Todos a bordo!')
-    senha = st.password('Digite a senha para gerar o relatório:')
+    senha = st.text_input('Digite a senha para gerar o relatório:', type='password')
 
 
 
