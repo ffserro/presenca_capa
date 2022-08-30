@@ -40,7 +40,7 @@ gridOptions = gb.build()
 st.write('# Presença CApA')
 st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
 grid_response = AgGrid(
-    df[~df.presente], 
+    df, 
     gridOptions=gridOptions,
     fit_columns_on_grid_load = True,
     data_return_mode='FILTERED', 
