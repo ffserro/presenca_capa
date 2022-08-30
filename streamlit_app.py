@@ -14,7 +14,7 @@ nomes = pd.read_csv('./CAPA.csv')
 
 df = pd.DataFrame()
 for i in nomes.NOME:
-    if agora.strftime('%Y-%m-%d') not in db.child('presenca').child(i).get().val().keys():
+    if agora.strftime('%Y-%m-%d') not in db.child('presenca').child(i).get().val().keys() or db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d').get().val()) == False:
 	    df = pd.concat([df, pd.DataFrame({'NOME':[i]})],ignore_index=True)
 
 
@@ -53,7 +53,7 @@ st.write(grid_response['selected_rows'])
 enviar = st.button('Presente!')
 if enviar:
     for nome in grid_response['selected_rows']:
-        pass
+        st.write(nome)
 
 
 
