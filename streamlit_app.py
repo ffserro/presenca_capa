@@ -51,21 +51,24 @@ kpi2.metric(
 
 st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
 
-grid_response = AgGrid(
-    df, 
-    gridOptions=gridOptions,
-    fit_columns_on_grid_load = True,
-    data_return_mode='FILTERED', 
-    update_mode='GRID_CHANGED',
-    theme='streamlit'    
-    )
+if len(df) != 0:
+    grid_response = AgGrid(
+        df, 
+        gridOptions=gridOptions,
+        fit_columns_on_grid_load = True,
+        data_return_mode='FILTERED', 
+        update_mode='GRID_CHANGED',
+        theme='streamlit'    
+        )
 
 
-enviar = st.button('Presente!')
-if enviar:
-    for nome in grid_response['selected_rows']:
-        db.child('presenca').child(nome['NOME']).update({agora.strftime('%Y-%m-%d'):agora.strftime('%H:%M:%S')})
-    st.experimental_rerun()
+    enviar = st.button('Presente!')
+    if enviar:
+        for nome in grid_response['selected_rows']:
+            db.child('presenca').child(nome['NOME']).update({agora.strftime('%Y-%m-%d'):agora.strftime('%H:%M:%S')})
+        st.experimental_rerun()
+else:
+    st.title('Todos a bordo!')
 
 
 
