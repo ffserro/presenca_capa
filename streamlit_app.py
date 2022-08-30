@@ -38,7 +38,6 @@ gridOptions = gb.build()
 
 
 st.write('# Presença CApA')
-st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
 
 kpi1, kpi2 = st.columns(2)
 
@@ -51,6 +50,8 @@ kpi2.metric(
     label='Ausentes',
     value=len(df)
 )
+
+st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
 
 grid_response = AgGrid(
     df, 
