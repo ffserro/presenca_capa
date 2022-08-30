@@ -43,12 +43,12 @@ st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB
 kpi1, kpi2 = st.columns(2)
 
 kpi1.metric(
-    label='Presentes'
+    label='Presentes',
     value=len(nomes) - len(df)
 )
 
 kpi2.metric(
-    label='Ausentes'
+    label='Ausentes',
     value=len(df)
 )
 
