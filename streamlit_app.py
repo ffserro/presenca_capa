@@ -14,7 +14,7 @@ nomes = pd.read_csv('./CAPA.csv')
 
 df = pd.DataFrame()
 for i in nomes.NOME:
-    if agora.strftime('%Y-%m-%d') not in db.child(presenca).child(i):
+    if agora.strftime('%Y-%m-%d') not in db.child('presenca').child(i):
 	    df = pd.concat([df, pd.DataFrame({'Oficial Aluno':i})],ignore_index=True)
 
 
