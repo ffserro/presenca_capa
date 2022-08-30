@@ -20,7 +20,7 @@ for i in nomes.NOME:
 
 gb = GridOptionsBuilder.from_dataframe(df)
 
-gb.configure_default_column(maintainColumnOrder=True, groupable=True, value=True, enableRowGroup=True, editable=False)
+gb.configure_default_column(maintainColumnOrder=True, value=True, enableRowGroup=True, editable=False)
 gb.configure_auto_height(True)
 gb.configure_column("NOME", 'Oficial Aluno')
 
@@ -32,9 +32,7 @@ gb.configure_selection('multiple')
 gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren=True, groupSelectsFiltered=True)
 
 
-
 gridOptions = gb.build()
-
 
 
 st.write('# Presença CApA - {}'.format(agora.strftime('%d/%m/%Y')))
