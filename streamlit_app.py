@@ -49,7 +49,8 @@ kpi2.metric(
     value=len(df)
 )
 
-st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
+if len(df) != 0 :
+    st.write('Por favor, selecione o nome dos oficiais que já se encontram no CIANB e clique no botão abaixo para dar presença.')
 
 if len(df) != 0:
     grid_response = AgGrid(
