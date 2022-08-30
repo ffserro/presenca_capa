@@ -37,7 +37,7 @@ gridOptions = gb.build()
 
 
 
-st.write('# Presença CApA {}'.format(agora.strftime('%d/%m/%Y')))
+st.write('# Presença CApA - {}'.format(agora.strftime('%d/%m/%Y')))
 
 kpi1, kpi2 = st.columns(2)
 
