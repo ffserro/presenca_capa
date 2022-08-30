@@ -53,7 +53,7 @@ st.write(grid_response['selected_rows'])
 enviar = st.button('Presente!')
 if enviar:
     for nome in grid_response['selected_rows']:
-        st.write(nome['NOME'])
+        db.child('presenca').child(nome['NOME']).update({agora.strftime('%Y-%m-%d'):agora.strftime('%H:%M%:%S')})
 
 
 
