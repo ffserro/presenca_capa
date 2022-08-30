@@ -20,7 +20,7 @@ for i in nomes.NOME:
 
 gb = GridOptionsBuilder.from_dataframe(df)
 
-gb.configure_default_column(maintainColumnOrder=True, value=True, enableRowGroup=True, editable=False)
+gb.configure_default_column(maintainColumnOrder=True, value=True, editable=False)
 gb.configure_auto_height(True)
 gb.configure_column("NOME", 'Oficial Aluno')
 
