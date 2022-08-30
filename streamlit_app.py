@@ -48,7 +48,6 @@ grid_response = AgGrid(
     theme='streamlit'    
     )
 
-st.write(grid_response['selected_rows'])
 
 enviar = st.button('Presente!')
 if enviar:
