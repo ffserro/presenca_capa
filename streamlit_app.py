@@ -32,7 +32,7 @@ gb.configure_selection('multiple')
 gb.configure_selection('multiple', use_checkbox=True, groupSelectsChildren=True, groupSelectsFiltered=True)
 
 
-gb.configure_grid_options(domLayout='normal')
+
 gridOptions = gb.build()
 
 
