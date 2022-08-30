@@ -69,7 +69,11 @@ if len(df) != 0:
         st.experimental_rerun()
 else:
     st.title('Todos a bordo!')
-    senha = st.text_input('Digite a senha para gerar o relatório:', type='password')
+    final = pd.DataFrame()
+    for i in nomes.NOME:
+        final = pd.concat([final, pd.DataFrame({ i : db.child('presenca').child(i).child(agora.strftime('%Y-%m-%d')).get().val() } ))], ignore_index=True)
+        st.dataframe(final)
+
 
 
 
