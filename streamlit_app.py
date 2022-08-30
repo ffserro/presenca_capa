@@ -53,13 +53,9 @@ enviar = st.button('Presente!')
 if enviar:
     for nome in grid_response['selected_rows']:
         db.child('presenca').child(nome['NOME']).update({agora.strftime('%Y-%m-%d'):agora.strftime('%H:%M:%S')})
+        st.experimental_rerun()
 
 
 
 
 
-'''
-ids = [i['id'] for i in grid_response['selected_rows']]
-for i in ([list(db.child('itens').order_by_child('id').equal_to(x).get().val().keys())[0] for x in ids]):
-    db.child('itens').child(i).update({'situacao':'Em trânsito', 'data_envio':datetime.now().strftime("%d/%m/%Y")})
-'''
