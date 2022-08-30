@@ -3,18 +3,20 @@ import streamlit as st
 import pandas as pd 
 import pyrebase
 from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+agora = datetime.now().astimezone(timezone(timedelta(hours=-3)))
+
 st.set_page_config(page_title='Presença', page_icon='https://www.marinha.mil.br/sites/default/files/favicon-logomarca-mb.ico', layout="centered", menu_items=None)
 
 firebase = pyrebase.initialize_app(st.secrets.CONFIG_KEY)
 db = firebase.database()
 
-query = db.child('presenca').child(datetime.now().strftime('%y-%m-%d')).get().val().values()
-
+nomes = pd.read_csv('./CAPA.csv')
 
 df = pd.DataFrame()
-for i in query:
-	df = pd.concat([df, pd.DataFrame({x:[i[x]] for x in i})],ignore_index=True)
+for i in nomes.NOME:
+    if agora.strftime('%Y-%m-%d') not in db.child(presenca).child(i):
+	    df = pd.concat([df, pd.DataFrame({'Oficial Aluno':i})],ignore_index=True)
 
 
 gb = GridOptionsBuilder.from_dataframe(df)
